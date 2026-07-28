@@ -31,6 +31,16 @@ def view_expenses(expenses):
 def add_expenses(expenses):
     print("\nAdd Expense\n")
 
+    next_id = len(expenses) + 1
+    category = input("Category: ")
+    description = input("Description: ")
+    amount = float(input("Amount: "))
+    date = input("Date: ")
+
+    new_expense = Expense(next_id, amount, category, description, date)
+    expenses.append(new_expense)
+    print("Expense added successfully!")
+
 
 # Function to delete expenses
 def delete_expense(expenses):
