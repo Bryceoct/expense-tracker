@@ -45,6 +45,21 @@ def add_expenses(expenses):
 # Function to delete expenses
 def delete_expense(expenses):
     print("\nDelete Expense\n")
+    expense_id = int(input("Enter Expense ID: "))
+
+    # for each expense
+    for expense in expenses:
+        # if the ID matches
+        if expense.expense_id == expense_id:
+            # remove it and stop searching
+            expenses.remove(expense)
+            print("\nExpense removed successfully!")
+            print(expense)
+            break
+    # otherwise, if loop finished without stopping
+    else:
+        # report it wasnt found
+        print(f"\nExpense with ID '{expense_id}' not found.")
 
 
 # Main program
