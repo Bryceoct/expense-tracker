@@ -34,7 +34,12 @@ def add_expenses(expenses):
     next_id = len(expenses) + 1
     category = input("Category: ")
     description = input("Description: ")
-    amount = float(input("Amount: "))
+    while True:
+        try:
+            amount = float(input("Amount: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
     date = input("Date: ")
 
     new_expense = Expense(next_id, amount, category, description, date)
@@ -45,9 +50,14 @@ def add_expenses(expenses):
 # Function to delete expenses
 def delete_expense(expenses):
     print("\nDelete Expense\n")
-    expense_id = int(input("Enter Expense ID: "))
 
-    # for each expense
+    while True:
+        try:
+            expense_id = int(input("Enter Expense ID: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid ID: ")
+    # for each expense in expenses list
     for expense in expenses:
         # if the ID matches
         if expense.expense_id == expense_id:
