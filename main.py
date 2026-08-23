@@ -6,8 +6,8 @@ expense_2 = Expense(2, 50, "food", "chipotle", "12-25-2026")
 
 # Expense list with sample data
 expenses = []
-expenses.append(expense_1)
-expenses.append(expense_2)
+# expenses.append(expense_1)
+# expenses.append(expense_2)
 
 
 # Function to display menu
@@ -22,6 +22,10 @@ def display_menu():
 # Function to view expenses
 def view_expenses(expenses):
     print("\nView Expenses\n")
+
+    if not expenses:
+        print("No expenses found. Add an expense first.")
+        return
 
     for expense in expenses:
         print(expense)
