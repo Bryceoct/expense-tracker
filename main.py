@@ -6,8 +6,8 @@ expense_2 = Expense(2, 50, "food", "chipotle", "12-25-2026")
 
 # Expense list with sample data
 expenses = []
-# expenses.append(expense_1)
-# expenses.append(expense_2)
+expenses.append(expense_1)
+expenses.append(expense_2)
 
 
 # Function to display menu
@@ -32,12 +32,23 @@ def view_expenses(expenses):
 
 
 # Function to add expenses
-def add_expenses(expenses):
+def add_expense(expenses):
     print("\nAdd Expense\n")
 
     next_id = len(expenses) + 1
-    category = input("Category: ")
-    description = input("Description: ")
+    while True:
+        category = input("Category: ").strip()
+        if not category:
+            print("Invalid input. Please enter a valid Category: ")
+        else:
+            break
+    while True:
+        description = input("Description: ").strip()
+        if not description:
+            print("Invalid input. Please enter a valid Description: ")
+        else:
+            break
+
     while True:
         try:
             amount = float(input("Amount: "))
@@ -85,7 +96,7 @@ while True:
     if user_choice == "1":
         view_expenses(expenses)
     elif user_choice == "2":
-        add_expenses(expenses)
+        add_expense(expenses)
     elif user_choice == "3":
         delete_expense(expenses)
     elif user_choice == "4":
