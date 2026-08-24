@@ -36,13 +36,20 @@ def view_expenses(expenses):
 def add_expense(expenses):
     print("\nAdd Expense\n")
 
-    next_id = len(expenses) + 1
+    largest_id = 0
+    for expense in expenses:
+        if expense.expense_id > largest_id:
+            largest_id = expense.expense_id
+
+    next_id = largest_id + 1
+
     while True:
         category = input("Category: ").strip()
         if not category:
             print("Invalid input. Please enter a valid Category: ")
         else:
             break
+
     while True:
         description = input("Description: ").strip()
         if not description:
@@ -59,6 +66,7 @@ def add_expense(expenses):
                 break
         except ValueError:
             print("Invalid input. Please enter a valid number.")
+
     while True:
         date = input("Date: ").strip()
         if not date:
