@@ -52,7 +52,10 @@ def add_expense(expenses):
     while True:
         try:
             amount = float(input("Amount: "))
-            break
+            if amount <= 0:
+                print("Invalid amount. Please enter an amount > 0: ")
+            else:
+                break
         except ValueError:
             print("Invalid input. Please enter a valid number.")
     date = input("Date: ")
