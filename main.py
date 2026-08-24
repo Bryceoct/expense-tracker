@@ -1,4 +1,5 @@
 from expense import Expense
+from datetime import datetime
 
 # Sample Data
 expense_1 = Expense(1, 125, "bill", "phone bill", "07-27-26")
@@ -58,7 +59,16 @@ def add_expense(expenses):
                 break
         except ValueError:
             print("Invalid input. Please enter a valid number.")
-    date = input("Date: ")
+    while True:
+        date = input("Date: ").strip()
+        if not date:
+            date = datetime.now().strftime("%m-%d-%Y")
+            break
+        try:
+            datetime.strptime(date, "%m-%d-%Y")
+            break
+        except ValueError:
+            print("Invalid date. Please use MM-DD-YYYY.")
 
     new_expense = Expense(next_id, amount, category, description, date)
     expenses.append(new_expense)
